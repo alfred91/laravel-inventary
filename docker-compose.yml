@@ -26,6 +26,18 @@ services:
       - mariadb
     restart: always  # Reinicio automático siempre que Docker se inicie o se reinicie.
 
+  react:
+    build:
+      context: ../react-inventario-app
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - REACT_APP_API_URL=http://localhost
+    networks:
+      - sail
+    restart: always
+
   mariadb:
     image: 'mariadb:10'
     ports:

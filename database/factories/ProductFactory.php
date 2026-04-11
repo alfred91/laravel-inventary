@@ -23,7 +23,7 @@ class ProductFactory extends Factory
             'model' => $this->faker->word,
             'manufacturer' => $this->faker->company,
             'description' => $this->faker->sentence,
-            'image' => $this->faker->imageUrl(640, 480, 'products', true),
+            'image' => 'https://picsum.photos/seed/' . $this->faker->word . '/640/480',
             'stock' => $this->faker->numberBetween(0, 100),
             'status' => $this->faker->randomElement(['active', 'broken', 'missing']),
             'category_id' => Category::inRandomOrder()->first()->id,
