@@ -24,7 +24,7 @@ services:
       - sail
     depends_on:
       - mariadb
-    restart: always  # Reinicio automático siempre que Docker se inicie o se reinicie.
+    restart: "no"  # Reinicio automático siempre que Docker se inicie o se reinicie.
 
   react:
     build:
@@ -36,7 +36,7 @@ services:
       - REACT_APP_API_URL=http://localhost
     networks:
       - sail
-    restart: always
+    restart: "no"
 
   mariadb:
     image: 'mariadb:10'
@@ -58,7 +58,7 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
       retries: 3
       timeout: 5s
-    restart: always  # Reinicio automático siempre que Docker se inicie o se reinicie.
+    restart: "no"  # Reinicio automático siempre que Docker se inicie o se reinicie.
 
 networks:
   sail:
